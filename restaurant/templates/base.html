@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <a class="navbar-brand" href="/">Yoldostum.az</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Mehsul</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">Cart
+                        <span class="badge badge-info">{{ request.session.cart.keys|length }}</span>
+                        </a>
+                    </li>
+                    {% if request.session.customer %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/order">Sebet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Cixis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profil</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Qeydiyyat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Giris</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </form>
+        </div>
+    </nav>
+    {% if signupSuccess %}
+        {{ signupSuccess }}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <style>
+      
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color:#333;
+      color:#
+    }
+    .ss{
+        background-color:white;
+    
+    height:200px;
+    }
+    .sss{
+        text-align: center;
+    }
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #333;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+      }
+      
+      #myBtn:hover {
+        background-color: #555;
+      }
+</style>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Geri</button>
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    </script>
+<div class="ss" >
+    <div class="sss">
+<a href="https://www.instagram.com/abidgurbanov0/" target="black"><img height="50px" src="https://avatars.mds.yandex.net/i?id=396d3df7b5c78fadceade1410ad9d531-3873335-images-thumbs&n=13" alt="Instagram"></a>
+<a href="#"><img height="50px" src="https://www.pinclipart.com/picdir/big/364-3648099_facebook-logo-red-transparent-fb-icon-white-png.png" alt="Facebook"></a>
+    <a href="https://www.youtube.com/channel/UCtNpNtM3yHr36rnRQXy12xg" target="black"><img height="50px" src="https://www.planet.com/assets/icons/youtube.svg" alt="Youtube"></a>
+
+    </div>
+<div>
+    © 2021
+    By Abid Gurbanov
+    
+    <p style="text-align:center">
+        All rights are reserved
+    </p>
+</div>
+        </div>
+</body>
+
+
+</html>
